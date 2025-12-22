@@ -18,10 +18,11 @@ import (
 // ResourceServiceEndpointJFrogArtifactoryV2 schema and implementation for JFrog Artifactory service endpoint resource
 func ResourceServiceEndpointJFrogArtifactoryV2() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointJFrogArtifactoryV2Create,
-		Read:   resourceServiceEndpointJFrogArtifactoryV2Read,
-		Update: resourceServiceEndpointJFrogArtifactoryV2Update,
-		Delete: resourceServiceEndpointJFrogArtifactoryV2Delete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointJFrogArtifactoryV2Create,
+		Read:               resourceServiceEndpointJFrogArtifactoryV2Read,
+		Update:             resourceServiceEndpointJFrogArtifactoryV2Update,
+		Delete:             resourceServiceEndpointJFrogArtifactoryV2Delete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -46,6 +47,7 @@ func ResourceServiceEndpointJFrogArtifactoryV2() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"token": {
 						Description: "The JFrog Artifactory access token.",
@@ -64,6 +66,7 @@ func ResourceServiceEndpointJFrogArtifactoryV2() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"username": {
 						Description: "The JFrog Artifactory user name.",

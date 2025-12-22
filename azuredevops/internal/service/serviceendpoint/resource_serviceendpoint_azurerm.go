@@ -20,10 +20,11 @@ const endpointValidationTimeoutSeconds = 60 * time.Second
 // ResourceServiceEndpointAzureRM schema and implementation for AzureRM service endpoint resource
 func ResourceServiceEndpointAzureRM() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointAzureRMCreate,
-		Read:   resourceServiceEndpointAzureRMRead,
-		Update: resourceServiceEndpointAzureRMUpdate,
-		Delete: resourceServiceEndpointAzureRMDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointAzureRMCreate,
+		Read:               resourceServiceEndpointAzureRMRead,
+		Update:             resourceServiceEndpointAzureRMUpdate,
+		Delete:             resourceServiceEndpointAzureRMDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -89,6 +90,7 @@ func ResourceServiceEndpointAzureRM() *schema.Resource {
 			MaxItems:      1,
 			ConflictsWith: []string{"resource_group"},
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"serviceprincipalid": {
 						Type:        schema.TypeString,
@@ -161,6 +163,7 @@ func ResourceServiceEndpointAzureRM() *schema.Resource {
 			Optional: true,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"validate": {
 						Type:        schema.TypeBool,

@@ -17,10 +17,11 @@ import (
 // ResourceServiceEndpointJenkins schema and implementation for Jenkins service endpoint resource
 func ResourceServiceEndpointJenkins() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointJenkinsCreate,
-		Read:   resourceServiceEndpointJenkinsRead,
-		Update: resourceServiceEndpointJenkinsUpdate,
-		Delete: resourceServiceEndpointJenkinsDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointJenkinsCreate,
+		Read:               resourceServiceEndpointJenkinsRead,
+		Update:             resourceServiceEndpointJenkinsUpdate,
+		Delete:             resourceServiceEndpointJenkinsDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

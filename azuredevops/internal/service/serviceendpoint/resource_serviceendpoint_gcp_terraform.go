@@ -15,10 +15,11 @@ import (
 // ResourceServiceEndpointGcp schema and implementation for gcp service endpoint resource
 func ResourceServiceEndpointGcp() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointGcpTerraformCreate,
-		Read:   resourceServiceEndpointGcpTerraformRead,
-		Update: resourceServiceEndpointGcpTerraformUpdate,
-		Delete: resourceServiceEndpointGcpTerraformDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointGcpTerraformCreate,
+		Read:               resourceServiceEndpointGcpTerraformRead,
+		Update:             resourceServiceEndpointGcpTerraformUpdate,
+		Delete:             resourceServiceEndpointGcpTerraformDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

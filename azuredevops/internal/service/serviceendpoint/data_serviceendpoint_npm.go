@@ -10,7 +10,8 @@ import (
 
 func DataResourceServiceEndpointNpm() *schema.Resource {
 	resource := &schema.Resource{
-		Read: dataSourceServiceEndpointNpmRead,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Read:               dataSourceServiceEndpointNpmRead,
 		Timeouts: &schema.ResourceTimeout{
 			Read: schema.DefaultTimeout(5 * time.Minute),
 		},

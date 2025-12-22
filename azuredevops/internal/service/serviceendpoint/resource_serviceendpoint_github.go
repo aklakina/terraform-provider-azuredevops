@@ -17,10 +17,11 @@ import (
 // ResourceServiceEndpointGitHub schema and implementation for github service endpoint resource
 func ResourceServiceEndpointGitHub() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointGitHubCreate,
-		Read:   resourceServiceEndpointGitHubRead,
-		Update: resourceServiceEndpointGitHubUpdate,
-		Delete: resourceServiceEndpointGitHubDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointGitHubCreate,
+		Read:               resourceServiceEndpointGitHubRead,
+		Update:             resourceServiceEndpointGitHubUpdate,
+		Delete:             resourceServiceEndpointGitHubDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -37,6 +38,7 @@ func ResourceServiceEndpointGitHub() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"personal_access_token": {
 						Type:         schema.TypeString,
@@ -57,6 +59,7 @@ func ResourceServiceEndpointGitHub() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"oauth_configuration_id": {
 						Type:     schema.TypeString,

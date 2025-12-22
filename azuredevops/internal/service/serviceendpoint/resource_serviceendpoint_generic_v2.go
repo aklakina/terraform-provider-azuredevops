@@ -38,10 +38,11 @@ type EndpointConfig struct {
 // ResourceServiceEndpointGenericV2 schema and implementation for generic service endpoint resource
 func ResourceServiceEndpointGenericV2() *schema.Resource {
 	return &schema.Resource{
-		CreateContext: resourceServiceEndpointGenericV2Create,
-		ReadContext:   resourceServiceEndpointGenericV2Read,
-		UpdateContext: resourceServiceEndpointGenericV2Update,
-		DeleteContext: resourceServiceEndpointGenericV2Delete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		CreateContext:      resourceServiceEndpointGenericV2Create,
+		ReadContext:        resourceServiceEndpointGenericV2Read,
+		UpdateContext:      resourceServiceEndpointGenericV2Update,
+		DeleteContext:      resourceServiceEndpointGenericV2Delete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

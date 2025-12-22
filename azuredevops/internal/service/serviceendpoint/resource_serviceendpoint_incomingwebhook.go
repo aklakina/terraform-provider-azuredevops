@@ -15,10 +15,11 @@ import (
 // ResourceServiceEndpointIncomingWebhook schema and implementation for incoming webhook service endpoint resource
 func ResourceServiceEndpointIncomingWebhook() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointIncomingWebhookCreate,
-		Read:   resourceServiceEndpointIncomingWebhookRead,
-		Update: resourceServiceEndpointIncomingWebhookUpdate,
-		Delete: resourceServiceEndpointIncomingWebhookDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointIncomingWebhookCreate,
+		Read:               resourceServiceEndpointIncomingWebhookRead,
+		Update:             resourceServiceEndpointIncomingWebhookUpdate,
+		Delete:             resourceServiceEndpointIncomingWebhookDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

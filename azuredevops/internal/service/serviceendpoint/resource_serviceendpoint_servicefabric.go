@@ -17,10 +17,11 @@ import (
 // ResourceServiceEndpointServiceFabric schema and implementation for ServiceFabric service endpoint resource
 func ResourceServiceEndpointServiceFabric() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointServiceFabricCreate,
-		Read:   resourceServiceEndpointServiceFabricRead,
-		Update: resourceServiceEndpointServiceFabricUpdate,
-		Delete: resourceServiceEndpointServiceFabricDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointServiceFabricCreate,
+		Read:               resourceServiceEndpointServiceFabricRead,
+		Update:             resourceServiceEndpointServiceFabricUpdate,
+		Delete:             resourceServiceEndpointServiceFabricDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -43,6 +44,7 @@ func ResourceServiceEndpointServiceFabric() *schema.Resource {
 			Optional: true,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"server_certificate_lookup": {
 						Type:     schema.TypeString,
@@ -90,6 +92,7 @@ func ResourceServiceEndpointServiceFabric() *schema.Resource {
 			Optional: true,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"server_certificate_lookup": {
 						Type:     schema.TypeString,
@@ -136,6 +139,7 @@ func ResourceServiceEndpointServiceFabric() *schema.Resource {
 			Optional: true,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"unsecured": {
 						Type:        schema.TypeBool,

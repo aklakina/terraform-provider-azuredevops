@@ -16,10 +16,11 @@ import (
 // ResourceServiceEndpointAws schema and implementation for aws service endpoint resource
 func ResourceServiceEndpointAws() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointAwsCreate,
-		Read:   resourceServiceEndpointAwsRead,
-		Update: resourceServiceEndpointAwsUpdate,
-		Delete: resourceServiceEndpointAwsDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointAwsCreate,
+		Read:               resourceServiceEndpointAwsRead,
+		Update:             resourceServiceEndpointAwsUpdate,
+		Delete:             resourceServiceEndpointAwsDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

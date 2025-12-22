@@ -17,10 +17,11 @@ import (
 // ResourceServiceEndpointGitHubEnterprise schema and implementation for github-enterprise service endpoint resource
 func ResourceServiceEndpointGitHubEnterprise() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointGitHubEnterpriseCreate,
-		Read:   resourceServiceEndpointGitHubEnterpriseRead,
-		Update: resourceServiceEndpointGitHubEnterpriseUpdate,
-		Delete: resourceServiceEndpointGitHubEnterpriseDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointGitHubEnterpriseCreate,
+		Read:               resourceServiceEndpointGitHubEnterpriseRead,
+		Update:             resourceServiceEndpointGitHubEnterpriseUpdate,
+		Delete:             resourceServiceEndpointGitHubEnterpriseDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -38,6 +39,7 @@ func ResourceServiceEndpointGitHubEnterprise() *schema.Resource {
 			MaxItems:      1,
 			ConflictsWith: []string{"auth_oauth"},
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"personal_access_token": {
 						Type:         schema.TypeString,
@@ -58,6 +60,7 @@ func ResourceServiceEndpointGitHubEnterprise() *schema.Resource {
 			MaxItems:      1,
 			ConflictsWith: []string{"auth_personal"},
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"oauth_configuration_id": {
 						Type:     schema.TypeString,

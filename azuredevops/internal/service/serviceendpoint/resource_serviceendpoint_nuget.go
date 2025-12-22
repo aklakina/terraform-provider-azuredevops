@@ -15,10 +15,11 @@ import (
 
 func ResourceServiceEndpointNuGet() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointNuGetCreate,
-		Read:   resourceServiceEndpointNuGetRead,
-		Update: resourceServiceEndpointNuGetUpdate,
-		Delete: resourceServiceEndpointNuGetDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointNuGetCreate,
+		Read:               resourceServiceEndpointNuGetRead,
+		Update:             resourceServiceEndpointNuGetUpdate,
+		Delete:             resourceServiceEndpointNuGetDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

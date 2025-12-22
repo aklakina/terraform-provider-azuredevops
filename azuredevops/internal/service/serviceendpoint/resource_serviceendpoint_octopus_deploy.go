@@ -16,10 +16,11 @@ import (
 
 func ResourceServiceEndpointOctopusDeploy() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointOctopusDeployCreate,
-		Read:   resourceServiceEndpointOctopusDeployRead,
-		Update: resourceServiceEndpointOctopusDeployUpdate,
-		Delete: resourceServiceEndpointOctopusDeployDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointOctopusDeployCreate,
+		Read:               resourceServiceEndpointOctopusDeployRead,
+		Update:             resourceServiceEndpointOctopusDeployUpdate,
+		Delete:             resourceServiceEndpointOctopusDeployDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

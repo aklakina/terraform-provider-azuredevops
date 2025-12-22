@@ -18,10 +18,11 @@ import (
 // ResourceServiceEndpointArgoCD schema and implementation for ArgoCD service endpoint resource
 func ResourceServiceEndpointArgoCD() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointArgoCDCreate,
-		Read:   resourceServiceEndpointArgoCDRead,
-		Update: resourceServiceEndpointArgoCDUpdate,
-		Delete: resourceServiceEndpointArgoCDDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointArgoCDCreate,
+		Read:               resourceServiceEndpointArgoCDRead,
+		Update:             resourceServiceEndpointArgoCDUpdate,
+		Delete:             resourceServiceEndpointArgoCDDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -46,6 +47,7 @@ func ResourceServiceEndpointArgoCD() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"token": {
 						Description: "The ArgoCD access token.",
@@ -64,6 +66,7 @@ func ResourceServiceEndpointArgoCD() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"username": {
 						Description: "The ArgoCD user name.",

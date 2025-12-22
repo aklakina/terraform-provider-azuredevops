@@ -16,10 +16,11 @@ import (
 // ResourceServiceEndpointGeneric schema and implementation for generic service endpoint resource
 func ResourceServiceEndpointGeneric() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointGenericCreate,
-		Read:   resourceServiceEndpointGenericRead,
-		Update: resourceServiceEndpointGenericUpdate,
-		Delete: resourceServiceEndpointGenericDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointGenericCreate,
+		Read:               resourceServiceEndpointGenericRead,
+		Update:             resourceServiceEndpointGenericUpdate,
+		Delete:             resourceServiceEndpointGenericDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

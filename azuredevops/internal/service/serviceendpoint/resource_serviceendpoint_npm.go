@@ -16,10 +16,11 @@ import (
 // ResourceServiceEndpointNpm schema and implementation for npm service endpoint resource
 func ResourceServiceEndpointNpm() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointNpmCreate,
-		Read:   resourceServiceEndpointNpmRead,
-		Update: resourceServiceEndpointNpmUpdate,
-		Delete: resourceServiceEndpointNpmDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointNpmCreate,
+		Read:               resourceServiceEndpointNpmRead,
+		Update:             resourceServiceEndpointNpmUpdate,
+		Delete:             resourceServiceEndpointNpmDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

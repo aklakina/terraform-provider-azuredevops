@@ -15,10 +15,11 @@ import (
 
 func ResourceServiceEndpointAzureDevOps() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointAzureDevOpsCreate,
-		Read:   resourceServiceEndpointAzureDevOpsRead,
-		Update: resourceServiceEndpointAzureDevOpsUpdate,
-		Delete: resourceServiceEndpointAzureDevOpsDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointAzureDevOpsCreate,
+		Read:               resourceServiceEndpointAzureDevOpsRead,
+		Update:             resourceServiceEndpointAzureDevOpsUpdate,
+		Delete:             resourceServiceEndpointAzureDevOpsDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

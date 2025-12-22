@@ -16,10 +16,11 @@ import (
 // ResourceServiceEndpointSonarQube schema and implementation for SonarQube service endpoint resource
 func ResourceServiceEndpointSonarQube() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointSonarQubeCreate,
-		Read:   resourceServiceEndpointSonarQubeRead,
-		Update: resourceServiceEndpointSonarQubeUpdate,
-		Delete: resourceServiceEndpointSonarQubeDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointSonarQubeCreate,
+		Read:               resourceServiceEndpointSonarQubeRead,
+		Update:             resourceServiceEndpointSonarQubeUpdate,
+		Delete:             resourceServiceEndpointSonarQubeDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

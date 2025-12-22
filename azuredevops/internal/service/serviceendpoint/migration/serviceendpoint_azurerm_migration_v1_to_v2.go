@@ -9,6 +9,7 @@ import (
 // https://developer.hashicorp.com/terraform/plugin/sdkv2/resources/state-migration
 func ServiceEndpointAzureRmSchemaV1ToV2() *schema.Resource {
 	return &schema.Resource{
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 		Schema: map[string]*schema.Schema{
 			"project_id": {
 				Type:     schema.TypeString,
@@ -65,6 +66,7 @@ func ServiceEndpointAzureRmSchemaV1ToV2() *schema.Resource {
 				MaxItems:      1,
 				ConflictsWith: []string{"resource_group"},
 				Elem: &schema.Resource{
+					DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 					Schema: map[string]*schema.Schema{
 						"serviceprincipalid": {
 							Type:     schema.TypeString,

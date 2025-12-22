@@ -15,10 +15,11 @@ import (
 
 func ResourceServiceEndpointCheckMarxSCA() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointCheckMarxSCACreate,
-		Read:   resourceServiceEndpointCheckMarxSCARead,
-		Update: resourceServiceEndpointCheckMarxSCAUpdate,
-		Delete: resourceServiceEndpointCheckMarxSCADelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointCheckMarxSCACreate,
+		Read:               resourceServiceEndpointCheckMarxSCARead,
+		Update:             resourceServiceEndpointCheckMarxSCAUpdate,
+		Delete:             resourceServiceEndpointCheckMarxSCADelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

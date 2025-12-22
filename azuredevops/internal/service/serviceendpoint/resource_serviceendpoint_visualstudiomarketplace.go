@@ -19,10 +19,11 @@ import (
 
 func ResourceServiceEndpointMarketplace() *schema.Resource {
 	r := &schema.Resource{
-		CreateContext: resourceServiceEndpointMarketplaceCreate,
-		ReadContext:   resourceServiceEndpointMarketplaceRead,
-		UpdateContext: resourceServiceEndpointMarketplaceUpdate,
-		DeleteContext: resourceServiceEndpointMarketplaceDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		CreateContext:      resourceServiceEndpointMarketplaceCreate,
+		ReadContext:        resourceServiceEndpointMarketplaceRead,
+		UpdateContext:      resourceServiceEndpointMarketplaceUpdate,
+		DeleteContext:      resourceServiceEndpointMarketplaceDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -46,6 +47,7 @@ func ResourceServiceEndpointMarketplace() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"token": {
 						Type:      schema.TypeString,
@@ -63,6 +65,7 @@ func ResourceServiceEndpointMarketplace() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"username": {
 						Type:     schema.TypeString,

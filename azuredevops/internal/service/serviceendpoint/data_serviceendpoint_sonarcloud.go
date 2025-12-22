@@ -9,7 +9,8 @@ import (
 
 func DataResourceServiceEndpointSonarCloud() *schema.Resource {
 	return &schema.Resource{
-		Read: dataSourceServiceEndpointSonarCloudRead,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Read:               dataSourceServiceEndpointSonarCloudRead,
 		Timeouts: &schema.ResourceTimeout{
 			Read: schema.DefaultTimeout(5 * time.Minute),
 		},

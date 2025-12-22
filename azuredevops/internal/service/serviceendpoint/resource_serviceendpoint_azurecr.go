@@ -17,10 +17,11 @@ import (
 // ResourceServiceEndpointAzureCR schema and implementation for ACR service endpoint resource
 func ResourceServiceEndpointAzureCR() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointAzureCRCreate,
-		Read:   resourceServiceEndpointAzureCRRead,
-		Update: resourceServiceEndpointAzureCRUpdate,
-		Delete: resourceServiceEndpointAzureCRDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointAzureCRCreate,
+		Read:               resourceServiceEndpointAzureCRRead,
+		Update:             resourceServiceEndpointAzureCRUpdate,
+		Delete:             resourceServiceEndpointAzureCRDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -73,6 +74,7 @@ func ResourceServiceEndpointAzureCR() *schema.Resource {
 			Optional: true,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"serviceprincipalid": {
 						Type:        schema.TypeString,

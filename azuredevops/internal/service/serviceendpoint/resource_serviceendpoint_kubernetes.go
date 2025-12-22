@@ -19,10 +19,11 @@ import (
 // ResourceServiceEndpointKubernetes schema and implementation for kubernetes service endpoint resource
 func ResourceServiceEndpointKubernetes() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointKubernetesCreate,
-		Read:   resourceServiceEndpointKubernetesRead,
-		Update: resourceServiceEndpointKubernetesUpdate,
-		Delete: resourceServiceEndpointKubernetesDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointKubernetesCreate,
+		Read:               resourceServiceEndpointKubernetesRead,
+		Update:             resourceServiceEndpointKubernetesUpdate,
+		Delete:             resourceServiceEndpointKubernetesDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -53,6 +54,7 @@ func ResourceServiceEndpointKubernetes() *schema.Resource {
 			Optional:    true,
 			Description: "'AzureSubscription'-type of configuration",
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"azure_environment": {
 						Type:         schema.TypeString,
@@ -112,6 +114,7 @@ func ResourceServiceEndpointKubernetes() *schema.Resource {
 			MaxItems:    1,
 			Description: "'Kubeconfig'-type of configuration",
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"kube_config": {
 						Type:        schema.TypeString,
@@ -142,6 +145,7 @@ func ResourceServiceEndpointKubernetes() *schema.Resource {
 			Optional:    true,
 			Description: "'ServiceAccount'-type of configuration",
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"ca_cert": {
 						Type:         schema.TypeString,

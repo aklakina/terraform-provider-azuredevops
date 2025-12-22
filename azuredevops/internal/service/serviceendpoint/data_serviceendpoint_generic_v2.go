@@ -16,7 +16,8 @@ import (
 // DataServiceEndpointGenericV2 schema and implementation for generic service endpoint data source
 func DataServiceEndpointGenericV2() *schema.Resource {
 	return &schema.Resource{
-		ReadContext: dataServiceEndpointGenericV2Read,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		ReadContext:        dataServiceEndpointGenericV2Read,
 		Timeouts: &schema.ResourceTimeout{
 			Read: schema.DefaultTimeout(1 * time.Minute),
 		},

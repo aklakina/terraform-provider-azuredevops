@@ -17,10 +17,11 @@ import (
 
 func ResourceServiceEndpointDynamicsLifecycleServices() *schema.Resource {
 	r := &schema.Resource{
-		CreateContext: resourceServiceEndpointDynamicsLifecycleServicesCreate,
-		ReadContext:   resourceServiceEndpointDynamicsLifecycleServicesRead,
-		UpdateContext: resourceServiceEndpointDynamicsLifecycleServicesUpdate,
-		DeleteContext: resourceServiceEndpointDynamicsLifecycleServicesDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		CreateContext:      resourceServiceEndpointDynamicsLifecycleServicesCreate,
+		ReadContext:        resourceServiceEndpointDynamicsLifecycleServicesRead,
+		UpdateContext:      resourceServiceEndpointDynamicsLifecycleServicesUpdate,
+		DeleteContext:      resourceServiceEndpointDynamicsLifecycleServicesDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),

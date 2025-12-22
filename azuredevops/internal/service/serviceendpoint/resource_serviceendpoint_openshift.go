@@ -19,10 +19,11 @@ import (
 
 func ResourceServiceEndpointOpenshift() *schema.Resource {
 	r := &schema.Resource{
-		CreateContext: resourceServiceEndpointOpenshiftCreate,
-		ReadContext:   resourceServiceEndpointOpenshiftRead,
-		UpdateContext: resourceServiceEndpointOpenshiftUpdate,
-		DeleteContext: resourceServiceEndpointOpenshiftDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		CreateContext:      resourceServiceEndpointOpenshiftCreate,
+		ReadContext:        resourceServiceEndpointOpenshiftRead,
+		UpdateContext:      resourceServiceEndpointOpenshiftUpdate,
+		DeleteContext:      resourceServiceEndpointOpenshiftDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -58,6 +59,7 @@ func ResourceServiceEndpointOpenshift() *schema.Resource {
 			ConflictsWith: []string{"auth_token", "auth_none"},
 			AtLeastOneOf:  []string{"auth_basic", "auth_token", "auth_none"},
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"username": {
 						Type:         schema.TypeString,
@@ -82,6 +84,7 @@ func ResourceServiceEndpointOpenshift() *schema.Resource {
 			MaxItems:      1,
 			ConflictsWith: []string{"auth_basic", "auth_none"},
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"token": {
 						Type:         schema.TypeString,
@@ -99,6 +102,7 @@ func ResourceServiceEndpointOpenshift() *schema.Resource {
 			MaxItems:      1,
 			ConflictsWith: []string{"auth_basic", "auth_token"},
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"kube_config": {
 						Type:     schema.TypeString,

@@ -19,10 +19,11 @@ import (
 // ResourceServiceEndpointMaven schema and implementation for Maven service endpoint resource
 func ResourceServiceEndpointMaven() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointMavenCreate,
-		Read:   resourceServiceEndpointMavenRead,
-		Update: resourceServiceEndpointMavenUpdate,
-		Delete: resourceServiceEndpointMavenDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointMavenCreate,
+		Read:               resourceServiceEndpointMavenRead,
+		Update:             resourceServiceEndpointMavenUpdate,
+		Delete:             resourceServiceEndpointMavenDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -54,6 +55,7 @@ func ResourceServiceEndpointMaven() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"token": {
 						Description: "The Maven access token.",
@@ -72,6 +74,7 @@ func ResourceServiceEndpointMaven() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"username": {
 						Description: "The Maven user name.",

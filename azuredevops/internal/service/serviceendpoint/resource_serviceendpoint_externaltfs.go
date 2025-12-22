@@ -15,10 +15,11 @@ import (
 
 func ResourceServiceEndpointExternalTFS() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointExternalTFSCreate,
-		Read:   resourceServiceEndpointExternalTFSRead,
-		Update: resourceServiceEndpointExternalTFSUpdate,
-		Delete: resourceServiceEndpointExternalTFSDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointExternalTFSCreate,
+		Read:               resourceServiceEndpointExternalTFSRead,
+		Update:             resourceServiceEndpointExternalTFSUpdate,
+		Delete:             resourceServiceEndpointExternalTFSDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -43,6 +44,7 @@ func ResourceServiceEndpointExternalTFS() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"personal_access_token": {
 						Type:         schema.TypeString,

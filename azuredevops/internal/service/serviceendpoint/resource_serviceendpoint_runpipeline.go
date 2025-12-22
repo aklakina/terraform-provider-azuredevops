@@ -16,10 +16,11 @@ import (
 // ResourceServiceEndpointRunPipeline schema and implementation for Azure DevOps service endpoint resource
 func ResourceServiceEndpointRunPipeline() *schema.Resource {
 	r := &schema.Resource{
-		Create: resourceServiceEndpointRunPipelineCreate,
-		Read:   resourceServiceEndpointRunPipelineRead,
-		Update: resourceServiceEndpointRunPipelineUpdate,
-		Delete: resourceServiceEndpointRunPipelineDelete,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Create:             resourceServiceEndpointRunPipelineCreate,
+		Read:               resourceServiceEndpointRunPipelineRead,
+		Update:             resourceServiceEndpointRunPipelineUpdate,
+		Delete:             resourceServiceEndpointRunPipelineDelete,
 		Timeouts: &schema.ResourceTimeout{
 			Create: schema.DefaultTimeout(2 * time.Minute),
 			Read:   schema.DefaultTimeout(1 * time.Minute),
@@ -43,6 +44,7 @@ func ResourceServiceEndpointRunPipeline() *schema.Resource {
 			MinItems: 1,
 			MaxItems: 1,
 			Elem: &schema.Resource{
+				DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
 				Schema: map[string]*schema.Schema{
 					"personal_access_token": {
 						Type:         schema.TypeString,

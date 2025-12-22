@@ -9,7 +9,8 @@ import (
 
 func DataResourceServiceEndpointDockerRegistry() *schema.Resource {
 	r := &schema.Resource{
-		Read: dataResourceServiceEndpointDockerRegistryRead,
+		DeprecationMessage: "This resource will be deprecated in favor of the new resource azuredevops_serviceendpoint_generic_v2",
+		Read:               dataResourceServiceEndpointDockerRegistryRead,
 		Timeouts: &schema.ResourceTimeout{
 			Read: schema.DefaultTimeout(1 * time.Minute),
 		},
