@@ -200,14 +200,8 @@ resource "azuredevops_project" "project" {
   name = "%s"
 }
 
-data "azuredevops_security_namespaces" "all" {
-}
-
-locals {
-  project_namespace = [
-    for ns in data.azuredevops_security_namespaces.all.namespaces :
-    ns if ns.name == "Project"
-  ][0]
+data "azuredevops_security_namespace" "project" {
+  name = "Project"
 }
 
 data "azuredevops_security_namespace_token" "project" {
@@ -223,9 +217,9 @@ data "azuredevops_identity_group" "test" {
 }
 
 resource "azuredevops_security_permissions" "test" {
-  namespace_id = local.project_namespace.namespace_id
+  namespace_id = data.azuredevops_security_namespace.project.id
   token        = data.azuredevops_security_namespace_token.project.token
-  principal    = data.azuredevops_identity_group.test.descriptor
+  principal    = data.azuredevops_identity_group.test.subject_descriptor
   permissions = {
     GENERIC_READ  = "allow"
     GENERIC_WRITE = "deny"
@@ -242,14 +236,8 @@ resource "azuredevops_project" "project" {
   name = "%s"
 }
 
-data "azuredevops_security_namespaces" "all" {
-}
-
-locals {
-  project_namespace = [
-    for ns in data.azuredevops_security_namespaces.all.namespaces :
-    ns if ns.name == "Project"
-  ][0]
+data "azuredevops_security_namespace" "project" {
+  name = "Project"
 }
 
 data "azuredevops_security_namespace_token" "project" {
@@ -265,9 +253,9 @@ data "azuredevops_identity_group" "test" {
 }
 
 resource "azuredevops_security_permissions" "test" {
-  namespace_id = local.project_namespace.namespace_id
+  namespace_id = data.azuredevops_security_namespace.project.id
   token        = data.azuredevops_security_namespace_token.project.token
-  principal    = data.azuredevops_identity_group.test.descriptor
+  principal    = data.azuredevops_identity_group.test.subject_descriptor
   permissions = {
     GENERIC_READ      = "allow"
     GENERIC_WRITE     = "allow"
@@ -293,14 +281,8 @@ resource "azuredevops_git_repository" "test" {
   }
 }
 
-data "azuredevops_security_namespaces" "all" {
-}
-
-locals {
-  git_namespace = [
-    for ns in data.azuredevops_security_namespaces.all.namespaces :
-    ns if ns.name == "Git Repositories"
-  ][0]
+data "azuredevops_security_namespace" "git_repo" {
+  name = "Git Repositories"
 }
 
 data "azuredevops_security_namespace_token" "git_repo" {
@@ -317,9 +299,9 @@ data "azuredevops_identity_group" "test" {
 }
 
 resource "azuredevops_security_permissions" "test" {
-  namespace_id = local.git_namespace.namespace_id
+  namespace_id = data.azuredevops_security_namespace.git_repo.id
   token        = data.azuredevops_security_namespace_token.git_repo.token
-  principal    = data.azuredevops_identity_group.test.descriptor
+  principal    = data.azuredevops_identity_group.test.subject_descriptor
   permissions = {
     GenericRead       = "allow"
     GenericContribute = "allow"
@@ -337,14 +319,8 @@ resource "azuredevops_project" "project" {
   name = "%s"
 }
 
-data "azuredevops_security_namespaces" "all" {
-}
-
-locals {
-  project_namespace = [
-    for ns in data.azuredevops_security_namespaces.all.namespaces :
-    ns if ns.name == "Project"
-  ][0]
+data "azuredevops_security_namespace" "project" {
+  name = "Project"
 }
 
 data "azuredevops_security_namespace_token" "project" {
@@ -360,9 +336,9 @@ data "azuredevops_identity_group" "test" {
 }
 
 resource "azuredevops_security_permissions" "test" {
-  namespace_id = local.project_namespace.namespace_id
+  namespace_id = data.azuredevops_security_namespace.project.id
   token        = data.azuredevops_security_namespace_token.project.token
-  principal    = data.azuredevops_identity_group.test.descriptor
+  principal    = data.azuredevops_identity_group.test.subject_descriptor
   permissions = {
     GENERIC_READ  = "allow"
     GENERIC_WRITE = "deny"
@@ -378,14 +354,8 @@ resource "azuredevops_project" "project" {
   name = "%s"
 }
 
-data "azuredevops_security_namespaces" "all" {
-}
-
-locals {
-  build_namespace = [
-    for ns in data.azuredevops_security_namespaces.all.namespaces :
-    ns if ns.name == "Build"
-  ][0]
+data "azuredevops_security_namespace" "Build" {
+  name = "Build"
 }
 
 data "azuredevops_security_namespace_token" "build" {
@@ -401,9 +371,9 @@ data "azuredevops_identity_group" "test" {
 }
 
 resource "azuredevops_security_permissions" "test" {
-  namespace_id = local.build_namespace.namespace_id
+  namespace_id = data.azuredevops_security_namespace.Build.id
   token        = data.azuredevops_security_namespace_token.build.token
-  principal    = data.azuredevops_identity_group.test.descriptor
+  principal    = data.azuredevops_identity_group.test.subject_descriptor
   permissions = {
     ViewBuilds       = "allow"
     EditBuildQuality = "deny"
@@ -420,14 +390,8 @@ resource "azuredevops_project" "project" {
   name = "%s"
 }
 
-data "azuredevops_security_namespaces" "all" {
-}
-
-locals {
-  project_namespace = [
-    for ns in data.azuredevops_security_namespaces.all.namespaces :
-    ns if ns.name == "Project"
-  ][0]
+data "azuredevops_security_namespace" "project" {
+  name = "Project"
 }
 
 data "azuredevops_security_namespace_token" "project" {
@@ -448,9 +412,9 @@ data "azuredevops_identity_group" "contributors" {
 }
 
 resource "azuredevops_security_permissions" "test1" {
-  namespace_id = local.project_namespace.namespace_id
+  namespace_id = data.azuredevops_security_namespace.project.id
   token        = data.azuredevops_security_namespace_token.project.token
-  principal    = data.azuredevops_identity_group.readers.descriptor
+  principal    = data.azuredevops_identity_group.readers.subject_descriptor
   permissions = {
     GENERIC_READ  = "allow"
     GENERIC_WRITE = "deny"
@@ -459,9 +423,9 @@ resource "azuredevops_security_permissions" "test1" {
 }
 
 resource "azuredevops_security_permissions" "test2" {
-  namespace_id = local.project_namespace.namespace_id
+  namespace_id = data.azuredevops_security_namespace.project.id
   token        = data.azuredevops_security_namespace_token.project.token
-  principal    = data.azuredevops_identity_group.contributors.descriptor
+  principal    = data.azuredevops_identity_group.contributors.subject_descriptor
   permissions = {
     GENERIC_READ  = "allow"
     GENERIC_WRITE = "allow"
